@@ -65,12 +65,12 @@ class Graph:
     def __init__(self, graph):
         self.graph = graph
 
-    def dijkstra(self, orig):
+    def dijkstra(self, orig, returnPred=False):
         dist = {node: float('inf') for node in self.graph}
-        #pred = {node: None for node in self.graph}
+        pred = {node: None for node in self.graph}
         
         dist[orig] = 0
-        #pred[orig] = -9999        
+        pred[orig] = -9999        
 
         pq = Heap()
         pq.heapPush(orig, 0)
@@ -85,10 +85,12 @@ class Graph:
                 new_dist = current_dist + weight
                 if new_dist < dist[neighbor]:
                     dist[neighbor] = new_dist
-                    #pred[neighbor] = current_node
+                    pred[neighbor] = current_node
                     pq.heapPush(neighbor, new_dist)
-
-        return dist #, pred
+        if returnPred:
+            return dist, pred
+        else:
+            return dist
 
 if __name__ == "__main__":
     grp = {
