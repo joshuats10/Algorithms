@@ -87,6 +87,7 @@ class Graph:
                     dist[neighbor] = new_dist
                     pred[neighbor] = current_node
                     pq.heapPush(neighbor, new_dist)
+                    
         if returnPred:
             return dist, pred
         else:
