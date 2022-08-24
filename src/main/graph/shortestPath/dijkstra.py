@@ -11,7 +11,7 @@ class Heap:
         self.arr = []
 
     def heapPush(self, node, dist):
-        self.arr.append(([node, dist]))
+        self.arr.append((node, dist))
         if self.arrSize() > 1:
             for i in range((self.arrSize()//2)-1, -1, -1):
                 self.heapify(i)
@@ -31,7 +31,7 @@ class Heap:
 
         if leftChild < self.arrSize() and self.arr[smallest][1] > self.arr[leftChild][1]:
             smallest = leftChild
-        if rightChild < self.arrSize() and self.arr[smallest][1] > self.arr[leftChild][1]:
+        if rightChild < self.arrSize() and self.arr[smallest][1] > self.arr[rightChild][1]:
             smallest = rightChild
 
         if smallest != i:
@@ -44,19 +44,6 @@ class Heap:
         for i in range((self.arrSize()//2)-1, -1, -1):
             self.heapify(i)
         return ret
-
-    def isinHeap(self, node):
-         for i in range(self.arrSize()):
-            if node == self.arr[i][0]:
-                return True 
-
-    def updateDist(self, node, new_dist):
-        for i in range(self.arrSize()):
-            if node == self.arr[i][0]:
-                self.arr[i][1] = new_dist
-        
-        for i in range((self.arrSize()//2)-1, -1, -1):
-            self.heapify(i)
 
     def isEmpty(self):
         return True if self.arrSize() == 0 else False
