@@ -2,7 +2,7 @@
     Prim's minimum spanning tree algorithm implementation
     Note the input is [(orig_edge, dest_edge, weight), ... ]
 
-    @author Joshua Teguh Santoso joshuateguhsantoso@gmail.com
+    @author Joshua Teguh Santoso, joshuateguhsantoso@gmail.com
 """
 
 from collections import defaultdict
