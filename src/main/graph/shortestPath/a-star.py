@@ -29,7 +29,6 @@ class Graph:
         for i in range(self.N):
             for j in range(self.N):
                 self.dist_matrix[i][j] = self.calculate_euclidian_dist(i, j)
-                self.dist_matrix[j][i] = self.calculate_euclidian_dist(j, i)
 
     def calculate_euclidian_dist(self, i, j):
         return ((self.pos[i][0] - self.pos[j][0]) ** 2 + (self.pos[i][1] - self.pos[j][1]) ** 2)**0.5
